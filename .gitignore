@@ -12,4 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/vcs.xml
+app/src/main/AndroidManifest.xml
 local.properties
