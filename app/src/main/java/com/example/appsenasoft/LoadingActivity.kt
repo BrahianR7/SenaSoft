@@ -9,10 +9,10 @@ class LoadingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-    }
 
 
-    fun initAp (view :View){
+
+
 
         intent = Intent( this, MainActivity::class.java)
         startActivity(intent)
