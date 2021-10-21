@@ -1,7 +1,9 @@
 package com.example.appsenasoft
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -17,7 +19,6 @@ class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelect
     private lateinit var toogle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        Thread.sleep(2000)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -61,7 +62,22 @@ class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelect
         return true
     }
 
-    
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        toogle.syncState()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        toogle.onConfigurationChanged(newConfig)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toogle.onOptionsItemSelected(item)){
+            return  true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     }
 //nav_view.setNavigationItemSelectedListener {
