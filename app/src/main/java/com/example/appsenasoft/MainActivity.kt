@@ -52,7 +52,10 @@ class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelect
 
 }
 
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+
         when (item.itemId) {
             R.id.nav_home -> Toast.makeText(this, "Registro",Toast.LENGTH_SHORT).show()
             R.id.nav_exit -> Toast.makeText(this, "Salida",Toast.LENGTH_SHORT).show()
