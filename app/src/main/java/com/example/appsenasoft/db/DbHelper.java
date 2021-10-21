@@ -11,7 +11,6 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NOMBRE = "SenaSoft.db";
     public static final String TABLE_PERSONA = "t_persona";
-    public static final String TABLE_TIPO = "t_tipo";
     public static final String TABLE_EQUIPO = "t_equipo";
     public static final String TABLE_OPERACION = "t_operacion";
 
@@ -22,15 +21,11 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_TIPO + "(" +
-                "tipoid INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombre TEXT)");
-
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_PERSONA + "(" +
                 "personaid INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT," +
                 "documento TEXT NOT NULL," +
-                "tipoid INTEGER NOT NULL)");
+                "tipo TEXT NOT NULL)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_EQUIPO + "(" +
                 "equipoid INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -38,7 +33,16 @@ public class DbHelper extends SQLiteOpenHelper {
                 "marca TEXT," +
                 "serial TEXT NOT NULL," +
                 "color TEXT," +
-                "personaid INTEGER NOT NULL)");
+                "personaid INTEGER NOT NULL," +
+                "FOREIGN KEY (personaid) REFERENCES " + TABLE_PERSONA + "(personaid))");
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_OPERACION + "(" +
+                "operacionid INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "equipoid INTEGER NOT NULL," +
+                "fechaIngreso DATETIME NOT NULL," +
+                "fechaSalida DATETIME," +
+                "tipooperacion INT NOT NULL," +
+                "FOREIGN KEY (equipoid) REFERENCES " + TABLE_EQUIPO + "(equipoid))");
 
     }
 
