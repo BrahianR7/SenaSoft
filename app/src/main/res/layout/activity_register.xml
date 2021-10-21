@@ -11,16 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="159dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="127dp">
 
         <EditText
             android:id="@+id/editTextTextPersonName3"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:selectAllOnFocus="false"
+            android:text="NOMBRE" />
 
         <EditText
             android:id="@+id/editTextPhone"
@@ -28,6 +30,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone"
-            android:text="phone" />
+            android:text="TELEFONO" />
+
+        <Spinner
+            android:id="@+id/rolSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

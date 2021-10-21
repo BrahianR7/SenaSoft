@@ -9,14 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppSenaSoft">
-        <activity
-            android:name=".navigationMenu"
-            android:label="@string/title_activity_navigation_menu"
-            android:theme="@style/Theme.AppSenaSoft.NoActionBar"></activity>
-        <activity
+    <activity
             android:name=".MainActivity"
-            android:exported="false">
-
+            android:exported="false"
+           >
         </activity>
         <activity
             android:name=".LoadingActivity"

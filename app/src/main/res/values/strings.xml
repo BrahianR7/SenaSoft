@@ -14,4 +14,16 @@
     <string name="registro_sena">Registro Sena</string>
     <string name="registro">INGRESO</string>
     <string name="consulta">SALIDA</string>
+    <string name="drawerLayout">sena</string>
+    <string-array name="opciones">
+        <item>Aprendiz</item>
+        <item>Instructor</item>
+        <item>Administrativo</item>
+        <item>Otro</item>
+
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_drawer">open</string>
+    <string name="close_drawer">close</string>
 </resources>
