@@ -8,8 +8,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
-
+    <string name="menu_gallery">GALERIA</string>
+    <string name="menu_home">home</string>
+    <string name="menu_slideshow">share</string>
     <string name="registro_sena">Registro Sena</string>
     <string name="registro">INGRESO</string>
     <string name="consulta">SALIDA</string>
