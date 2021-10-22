@@ -37,8 +37,13 @@ class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelect
         
         lista.setInClickListener { parent, view, position, id ->
             val intent = Intent(this, PersonaActivity::class.java)
-            intent.putExtra("persona", listaPersonas[position])
+            intent.putExtra("id", listaPersonas[position].idPersona)
             startActivity(intent)
+        }
+
+            floatingActionButton.setOnClickListener{
+                val intent = Intent(this, NuevaPersonaActivity::clase.java)
+                startActivity(intent)
         }
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)

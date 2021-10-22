@@ -1,10 +1,7 @@
 package com.example.appsenasoft
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface PersonasDao {
@@ -19,4 +16,7 @@ interface PersonasDao {
 
     @Update
     fun update(persona: Persona)
+
+    @Delete
+    fun delete(persona: Persona)
 }
