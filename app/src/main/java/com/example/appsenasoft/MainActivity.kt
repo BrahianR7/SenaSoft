@@ -22,6 +22,17 @@ class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelect
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val listaPersonas = listOf()
+
+        val adapter = PersonasAdapter (this, listaPersonas)
+
+        lista.adapter = adapter
+
+        lista.setInClickListener { parent, view, position, id ->
+            val intent = Intent(this, PersonaActivity::class.java)
+            intent.putExtra("persona", listaPersonas[position])
+            startActivity(intent)
+        }
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
