@@ -11,6 +11,7 @@ import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
 import com.google.android.material.navigation.NavigationView
 
 class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -22,12 +23,18 @@ class   MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelect
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val listaPersonas = listOf()
+        var listaPersonas = emptyList<Persona>()
 
-        val adapter = PersonasAdapter (this, listaPersonas)
+        val database = AppDatabase.getDatabase(this)
 
-        lista.adapter = adapter
+        database.personas().getAll().observe(this, Observer {
+            listaPersonas = it
 
+            val adapter = PersonasAdapter (this, listaPersonas)
+
+            lista.adapter = adapter
+        })
+        
         lista.setInClickListener { parent, view, position, id ->
             val intent = Intent(this, PersonaActivity::class.java)
             intent.putExtra("persona", listaPersonas[position])
